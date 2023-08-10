@@ -1,8 +1,11 @@
+import { Container } from '@/components/Container';
+import { Header } from '@/components/Header';
+
 function App() {
   return (
-    <>
-      <h2 className="text-2xl">tst</h2>
-    </>
+    <Container>
+      <Header />
+    </Container>
   );
 }
 
