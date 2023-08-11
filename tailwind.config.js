@@ -13,11 +13,15 @@ export default {
         'scissors-gr': 'linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%))',
         'paper-gr': 'linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%))',
         'rock-gr': 'linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%))',
-        'lizartd-gr': 'linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%))',
-        'cyan-gr': 'linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%))',
+        'lizard-gr': 'linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%))',
+        'spock-gr': 'linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%))',
       },
       fontFamily: {
         barlow: ['Barlow Semi Condensed', 'sans-serif', 'roboto'],
+      },
+      borderRadius: {
+        radii: '8px',
+        header: '15px',
       },
     },
   },

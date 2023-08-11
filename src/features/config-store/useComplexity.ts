@@ -1,5 +1,5 @@
 import { useAppSelector, useAppDispatch } from '@/store/appHooks';
-import { selectComplexity } from './congif-selectores';
+import { selectComplexity } from './congif-selectors';
 import { setComplexity } from './config-slice';
 
 export const useComplexity = () => {
