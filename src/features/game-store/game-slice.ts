@@ -1,8 +1,8 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { IGamePiece, GameStage } from '@/types';
+import type { GamePiece, GameStage } from '@/types';
 
 interface GameState {
-  pieces: IGamePiece[];
+  pieces: GamePiece[];
   stage: GameStage;
 }
 
@@ -15,7 +15,7 @@ const gameSlice = createSlice({
   name: '@@game',
   initialState,
   reducers: {
-    setPieces: (state, action: PayloadAction<IGamePiece[]>) => {
+    setPieces: (state, action: PayloadAction<GamePiece[]>) => {
       state.pieces = action.payload;
     },
     setStage: (state, action: PayloadAction<GameStage>) => {

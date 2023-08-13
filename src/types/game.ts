@@ -1,8 +1,2 @@
-export type GamePieceType = 'lizard' | 'paper' | 'rock' | 'scissors' | 'spock';
-export type GamePiecePosition = [number, number];
+export type GamePiece = 'lizard' | 'paper' | 'rock' | 'scissors' | 'spock';
 export type GameStage = 'choice' | 'result';
-
-export interface IGamePiece {
-  type: GamePieceType;
-  position: GamePiecePosition;
-}

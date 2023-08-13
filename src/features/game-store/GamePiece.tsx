@@ -1,26 +1,22 @@
 import { FC } from 'react';
-import { GamePieceType, GamePiecePosition } from '@/types';
+import { GamePiece as GamePieceType, Complexity } from '@/types';
 
 interface GamePieceProps {
-  type: GamePieceType;
-  position?: GamePiecePosition;
-  interactive?: boolean;
+  piece: GamePieceType;
+  complexity: Complexity;
 }
-export const GamePiece: FC<GamePieceProps> = ({ type, position }) => {
-  const positionStyle = position
-    ? {
-        top: `${position[0]}%`,
-        left: `${position[1]}%`,
-      }
-    : {};
 
+export const GamePiece: FC<GamePieceProps> = ({ piece, complexity }) => {
   return (
     <div
-      className="absolute w-24 aspect-square bg-no-repeat bg-center rounded-[50%] bg-white"
-      style={{
-        ...positionStyle,
-        backgroundImage: `url('/assets/images/icon-${type}.svg')`,
-      }}
-    />
+      className={`${piece} ${complexity} absolute aspect-square flex justify-center items-center rounded-[50%]`}
+    >
+      <div
+        className={`${complexity} w-full aspect-square bg-no-repeat bg-center rounded-[50%] bg-white`}
+        style={{
+          backgroundImage: `url('/assets/images/icon-${piece}.svg')`,
+        }}
+      />
+    </div>
   );
 };
