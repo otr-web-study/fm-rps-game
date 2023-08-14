@@ -3,67 +3,43 @@
 @tailwind utilities;
 
 @layer components {
-  .paper {
-    @apply bg-paper-gr;
+  .paper > div {
+    @apply bg-paper-gr shadow-sh-paper;
   }
-  .rock {
-    @apply bg-rock-gr;
+  .rock > div {
+    @apply bg-rock-gr shadow-sh-rock;
   }
-  .scissors {
-    @apply bg-scissors-gr;
+  .scissors > div {
+    @apply bg-scissors-gr shadow-sh-scissors;
   }
-  .lizard {
-    @apply bg-lizard-gr;
+  .lizard > div {
+    @apply bg-lizard-gr shadow-sh-lizard;
   }
-  .spock {
-    @apply bg-spock-gr;
+  .spock > div {
+    @apply bg-spock-gr shadow-sh-spock;
   }
   .paper.easy {
-    @apply top-[-46px] left-[-54px] py-4 px-4 w-32  shadow-sh-paper md:shadow-sh-paper-big md:top-[-84px] md:left-[-82px] md:w-[190px] md:py-6 md:px-6;
+    @apply top-[-46px] left-[-54px] w-32  md:top-[-84px] md:left-[-82px] md:w-[190px];
   }
   .paper.hard {
-    @apply top-[26px] right-[-52px] w-24 py-3 px-3  shadow-sh-paper-small md:shadow-sh-paper md:top-[26px] md:right-[-84px] md:w-36 md:py-4 md:px-4;
+    @apply top-[26px] right-[-52px] w-24 md:top-[26px] md:right-[-84px] md:w-36;
   }
   .rock.easy {
-    @apply left-[38px] bottom-[-26px] py-4 px-4 w-32  shadow-sh-rock md:shadow-sh-rock-big md:left-[56px] md:bottom-[-34px] md:w-[190px] md:py-6 md:px-6;
+    @apply left-[38px] bottom-[-26px] w-32 md:left-[56px] md:bottom-[-34px] md:w-[190px];
   }
   .rock.hard {
-    @apply -bottom-10 right-[-10px] w-24 py-3 px-3  shadow-sh-rock-small md:shadow-sh-rock md:right-[-22px] md:bottom-[-56px] md:w-36 md:py-4 md:px-4;
+    @apply -bottom-10 right-[-10px] w-24 md:right-[-22px] md:bottom-[-56px] md:w-36;
   }
   .scissors.easy {
-    @apply top-[-46px] right-[-52px] py-4 px-4 w-32  shadow-sh-scissors md:shadow-sh-scissors-big md:top-[-84px] md:right-[-86px] md:w-[190px] md:py-6 md:px-6;
+    @apply top-[-46px] right-[-52px] w-32 md:top-[-84px] md:right-[-86px] md:w-[190px];
   }
   .scissors.hard {
-    @apply top-[-56px] left-[54px] w-24 py-3 px-3 shadow-sh-scissors-small md:shadow-sh-scissors md:top-[-102px] md:left-[78px] md:w-36 md:py-4 md:px-4;
+    @apply top-[-56px] left-[54px] w-24 md:top-[-102px] md:left-[78px] md:w-36;
   }
   .lizard.hard {
-    @apply -left-4 -bottom-10 w-24 py-3 px-3 shadow-sh-lizard-small md:shadow-sh-lizard md:bottom-[-56px] md:left-[-20px] md:w-36 md:py-4 md:px-4;
+    @apply -left-4 -bottom-10 w-24 md:bottom-[-56px] md:left-[-20px] md:w-36;
   }
   .spock.hard {
-    @apply top-[26px] left-[-54px] w-24 py-3 px-3  shadow-sh-spock-small md:shadow-sh-spock md:top-[26px] md:left-[-86px] md:w-36 md:py-4 md:px-4;
-  }
-  .paper > .easy {
-    @apply bg-[44px,44px] shadow-sh-inner md:bg-[70px,70px] md:shadow-sh-inner-big;
-  }
-  .paper > .hard {
-    @apply bg-[34px,34px] shadow-sh-inner-small md:bg-[50px,50px] md:shadow-sh-inner;
-  }
-  .rock > .easy {
-    @apply bg-[44px,44px] shadow-sh-inner md:bg-[70px,70px] md:shadow-sh-inner-big;
-  }
-  .rock > .hard {
-    @apply bg-[34px,34px] shadow-sh-inner-small md:bg-[50px,50px] md:shadow-sh-inner;
-  }
-  .scissors > .easy {
-    @apply bg-[44px,44px] shadow-sh-inner md:bg-[70px,70px] md:shadow-sh-inner-big;
-  }
-  .scissors > .hard {
-    @apply bg-[34px,34px] shadow-sh-inner-small md:bg-[50px,50px] md:shadow-sh-inner;
-  }
-  .lizard > .hard {
-    @apply bg-[42px,42px] shadow-sh-inner-small md:bg-[64px,64px] md:shadow-sh-inner;
-  }
-  .spock > .hard {
-    @apply bg-[34px,34px] shadow-sh-inner-small md:bg-[50px,50px] md:shadow-sh-inner;
+    @apply top-[26px] left-[-54px] w-24 md:top-[26px] md:left-[-86px] md:w-36;
   }
 }

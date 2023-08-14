@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '@/store/appHooks';
 import type { GamePiece, Complexity } from '@/types';
 import { selectPieces, selectStage } from './game-selectors';
 import { selectComplexity } from '../config-store/congif-selectors';
-import { setPieces } from './game-slice';
+import { setPieces, setStage } from './game-slice';
 
 type GameSets = Record<Complexity, GamePiece[]>;
 
@@ -18,9 +18,18 @@ export const useGameBoard = () => {
   const complexity = useAppSelector(selectComplexity);
   const stage = useAppSelector(selectStage);
 
+  const toggleStage = () => {
+    dispatch(setStage(stage === 'choice' ? 'result' : 'choice'));
+  };
+
+  const handleChoice = (piece: GamePiece) => {
+    toggleStage();
+    console.log(piece);
+  };
+
   useEffect(() => {
     dispatch(setPieces(gameSets[complexity]));
   }, [complexity, dispatch]);
 
-  return { pieces, complexity, stage };
+  return { pieces, complexity, stage, handleChoice };
 };

@@ -1,15 +1,21 @@
 import type { FC } from 'react';
-import { GamePiece } from './GamePiece';
+import { GamePieceInteractive } from './GamePieceInteractive';
 import type { Complexity, GamePiece as GamePieceType } from '@/types';
 
 interface GameChoiceProps {
   pieces: GamePieceType[];
   complexity: Complexity;
+  onChoice: (piece: GamePieceType) => void;
 }
 
-export const GameChoice: FC<GameChoiceProps> = ({ pieces, complexity }) => {
+export const GameChoice: FC<GameChoiceProps> = ({ pieces, complexity, onChoice }) => {
   const content = pieces.map((piece) => (
-    <GamePiece key={piece} piece={piece} complexity={complexity} />
+    <GamePieceInteractive
+      key={piece}
+      piece={piece}
+      complexity={complexity}
+      onClick={() => onChoice(piece)}
+    />
   ));
 
   return (
