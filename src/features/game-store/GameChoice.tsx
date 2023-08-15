@@ -1,20 +1,15 @@
-import type { FC } from 'react';
 import { GamePieceInteractive } from './GamePieceInteractive';
-import type { Complexity, GamePiece as GamePieceType } from '@/types';
+import { useGameChoice } from './useGameChoice';
 
-interface GameChoiceProps {
-  pieces: GamePieceType[];
-  complexity: Complexity;
-  onChoice: (piece: GamePieceType) => void;
-}
+export const GameChoice = () => {
+  const { pieces, complexity, handleChoice } = useGameChoice();
 
-export const GameChoice: FC<GameChoiceProps> = ({ pieces, complexity, onChoice }) => {
   const content = pieces.map((piece) => (
     <GamePieceInteractive
       key={piece}
       piece={piece}
       complexity={complexity}
-      onClick={() => onChoice(piece)}
+      onClick={() => handleChoice(piece)}
     />
   ));
 

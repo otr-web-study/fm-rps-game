@@ -7,6 +7,7 @@ export default {
         dark: 'hsl(229, 25%, 31%)',
         score: 'hsl(229, 64%, 46%)',
         outline: 'hsl(217, 16%, 45%)',
+        'dark-trans-1': 'rgba(0,0,0,0.1)',
       },
       backgroundImage: {
         'bg-gr': 'linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%))',
