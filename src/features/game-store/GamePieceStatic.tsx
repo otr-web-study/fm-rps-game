@@ -11,17 +11,17 @@ export const GamePieceStatic: FC<GamePieceStaticProps> = ({ piece, title }) => {
   const content = piece ? (
     <GamePiece piece={piece} />
   ) : (
-    <div className="bg-dark-trans-1 w-[calc(100%-1.35em)] aspect-square rounded-[50%]" />
+    <div className="aspect-square w-[calc(100%-1.35em)] rounded-[50%] bg-dark-trans-1" />
   );
 
   return (
-    <div className="flex flex-col md:flex-col-reverse items-center gap-7">
+    <div className="flex flex-col items-center gap-7 md:flex-col-reverse md:gap-16">
       <div
-        className={`${piece} w-32 aspect-square rounded-[50%] [container-type:inline-size] flex justify-center items-center`}
+        className={`${piece} flex aspect-square w-32 items-center justify-center rounded-[50%] [container-type:inline-size] md:w-[91%]`}
       >
         {content}
       </div>
-      <h3 className="uppercase tracking-[1.8px]">{title}</h3>
+      <h3 className="uppercase tracking-[1.8px] md:text-2xl md:tracking-[2.5px]">{title}</h3>
     </div>
   );
 };

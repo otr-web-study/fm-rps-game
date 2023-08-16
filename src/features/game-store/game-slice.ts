@@ -1,11 +1,12 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { GamePiece, GameStage } from '@/types';
+import type { GamePiece, GameStage, Result } from '@/types';
 
 interface GameState {
   pieces: GamePiece[];
   stage: GameStage;
   playerChoice: GamePiece | null;
   computerChoice: GamePiece | null;
+  result: Result | null;
 }
 
 const initialState: GameState = {
@@ -13,6 +14,7 @@ const initialState: GameState = {
   stage: 'choice',
   playerChoice: null,
   computerChoice: null,
+  result: null,
 };
 
 const gameSlice = createSlice({
@@ -26,6 +28,7 @@ const gameSlice = createSlice({
       state.stage = 'choice';
       state.playerChoice = null;
       state.computerChoice = null;
+      state.result = null;
     },
     setPlayerChoice: (state, action: PayloadAction<GamePiece | null>) => {
       state.playerChoice = action.payload;

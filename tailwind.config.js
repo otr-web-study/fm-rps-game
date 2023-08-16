@@ -1,3 +1,5 @@
+import plugin from 'tailwindcss/plugin';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -34,5 +36,18 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addComponents, theme }) {
+      addComponents({
+        '.text-bg-gr': {
+          'background-image': theme('backgroundImage.bg-gr'),
+          'background-size': '100%',
+          '-webkit-background-clip': 'text',
+          '-moz-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          '-moz-text-fill-color': 'transparent',
+        },
+      });
+    }),
+  ],
 };
