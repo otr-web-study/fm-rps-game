@@ -3,10 +3,12 @@ import type { Complexity } from '@/types';
 
 interface ConfigState {
   complexity: Complexity;
+  allowDraw: boolean;
 }
 
 const initialState: ConfigState = {
   complexity: 'easy',
+  allowDraw: false,
 };
 
 const configSlice = createSlice({
@@ -15,6 +17,9 @@ const configSlice = createSlice({
   reducers: {
     setComplexity: (state, action: PayloadAction<Complexity>) => {
       state.complexity = action.payload;
+    },
+    setAllowDraw: (state, action: PayloadAction<boolean>) => {
+      state.allowDraw = action.payload;
     },
   },
 });

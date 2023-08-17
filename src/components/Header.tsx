@@ -7,8 +7,8 @@ export const Header = () => {
 
   return (
     <header className="w-full px-[15px]">
-      <div className="flex justify-between mt-[30px] max-w-[700px] mx-auto items-center pr-3 pl-5 border-[3px] rounded-header border-outline w-full h-[100px] md:mt-[48px] md:h-[150px] md:pl-[30px] md:pr-5">
-        <img src={`assets/images/logo-${complexity}.svg`} className="h-[50px] md:h-[110px]" />
+      <div className="mx-auto mt-[30px] flex h-[100px] w-full max-w-[700px] items-center justify-between rounded-header border-[3px] border-outline pl-5 pr-3 lg:mt-[48px] lg:h-[150px] lg:pl-[30px] lg:pr-5">
+        <img src={`assets/images/logo-${complexity}.svg`} className="h-[50px] lg:h-[110px]" />
         <Score />
       </div>
     </header>

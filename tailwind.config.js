@@ -10,6 +10,7 @@ export default {
         score: 'hsl(229, 64%, 46%)',
         outline: 'hsl(217, 16%, 45%)',
         'dark-trans-1': 'rgba(0,0,0,0.1)',
+        overlay: 'rgba(0,0,0,0.5)',
       },
       backgroundImage: {
         'bg-gr': 'linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%))',
@@ -18,6 +19,8 @@ export default {
         'rock-gr': 'linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%))',
         'lizard-gr': 'linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%))',
         'spock-gr': 'linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%))',
+        'winner-gr':
+          'radial-gradient(rgba(255,255,255,0) 25%, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.06) 40%, rgba(255,255,255,0.04) 40%, rgba(255,255,255,0.04) 55%, rgba(255,255,255,0.02) 55%, rgba(255,255,255,0.02) 100%)',
       },
       fontFamily: {
         barlow: ['Barlow Semi Condensed', 'sans-serif', 'roboto'],

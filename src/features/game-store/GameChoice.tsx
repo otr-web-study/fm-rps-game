@@ -15,7 +15,7 @@ export const GameChoice = () => {
 
   return (
     <div
-      className="relative w-[205px] aspect-square mt-[150px] bg-no-repeat bg-center bg-contain  md:w-[300px]"
+      className="relative mt-[150px] aspect-square w-[205px] bg-contain bg-center bg-no-repeat  lg:w-[300px]"
       style={{ backgroundImage: `url('/assets/images/bg-${complexity}.svg')` }}
     >
       {content}

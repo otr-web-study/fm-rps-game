@@ -5,23 +5,29 @@ import { GamePiece } from './GamePiece';
 interface GamePieceStaticProps {
   piece: GamePieceType | null;
   title: string;
+  winner: boolean;
 }
 
-export const GamePieceStatic: FC<GamePieceStaticProps> = ({ piece, title }) => {
+export const GamePieceStatic: FC<GamePieceStaticProps> = ({ piece, title, winner }) => {
   const content = piece ? (
     <GamePiece piece={piece} />
   ) : (
     <div className="aspect-square w-[calc(100%-1.35em)] rounded-[50%] bg-dark-trans-1" />
   );
 
+  const winnerClassName = winner ? 'before:scale-[2.6]' : '';
+  const pieceClassName = piece
+    ? 'before:absolute before:bg-winner-gr before:left-0 before:top-0 before:-z-10 before:aspect-square before:w-full before:rounded-[50%] before:transition-transform before:duration-500 before:content-[""]'
+    : '';
+
   return (
-    <div className="flex flex-col items-center gap-7 md:flex-col-reverse md:gap-16">
+    <div className="flex flex-col items-center gap-7 [container-type:inline-size] lg:flex-col-reverse lg:gap-16">
       <div
-        className={`${piece} flex aspect-square w-32 items-center justify-center rounded-[50%] [container-type:inline-size] md:w-[91%]`}
+        className={`${piece} relative flex aspect-square w-32 items-center justify-center rounded-[50%] [container-type:inline-size] lg:w-[91%] ${pieceClassName} ${winnerClassName}`}
       >
         {content}
       </div>
-      <h3 className="uppercase tracking-[1.8px] md:text-2xl md:tracking-[2.5px]">{title}</h3>
+      <h3 className="uppercase tracking-[1.8px] lg:text-2xl lg:tracking-[2.5px]">{title}</h3>
     </div>
   );
 };
