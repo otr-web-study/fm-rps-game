@@ -1,4 +1,5 @@
 import { type FC } from 'react';
+import { motion } from 'framer-motion';
 import { useModal } from './useModal';
 import { useConfig } from './useConfig';
 import { ReactComponent as CloseIcon } from '@/assets/images/icon-close.svg';
@@ -13,7 +14,10 @@ export const ConfigDialog: FC<ConfigDialogProps> = ({ onClose }) => {
   const { allowDraw, complexity, toggleAllowDraw, toggleComplexity } = useConfig();
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       id="modal"
       className="fixed bottom-0 left-0 right-0 top-0 z-20 inline-flex items-center justify-center bg-overlay"
       onMouseDown={handleMouseDown}
@@ -45,6 +49,6 @@ export const ConfigDialog: FC<ConfigDialogProps> = ({ onClose }) => {
           <span className="sr-only">close</span>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };

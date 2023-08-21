@@ -5,8 +5,9 @@ const scoreSlice = createSlice({
   initialState: 0,
   reducers: {
     setScore: (_, action: PayloadAction<number>) => action.payload,
+    updateScore: (state, action: PayloadAction<number>) => state + action.payload,
   },
 });
 
-export const { setScore } = scoreSlice.actions;
+export const { updateScore } = scoreSlice.actions;
 export const scoreReducer = scoreSlice.reducer;

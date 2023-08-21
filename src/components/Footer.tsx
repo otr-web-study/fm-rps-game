@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import { useConfigDealog } from '@/features/config/useConfigDialog';
 import { ConfigDialog } from '@/features/config/ConfigDialog';
 
@@ -5,14 +6,16 @@ export const Footer = () => {
   const { isDialogOpened, toggleDialogOpened } = useConfigDealog();
 
   return (
-    <footer className="mt-11 flex w-full max-w-[1348px] justify-center px-5 lg:mt-[18px] lg:justify-end">
+    <footer className="relative z-10 mt-11 flex w-full max-w-[1348px] justify-center px-5 lg:mt-[18px] lg:justify-end">
       <button
         className="rounded-radii border-2 border-white/50 px-[38px] py-[7px] uppercase tracking-[2px]"
         onClick={toggleDialogOpened}
       >
         rules
       </button>
-      {isDialogOpened && <ConfigDialog onClose={toggleDialogOpened} />}
+      <AnimatePresence>
+        {isDialogOpened && <ConfigDialog onClose={toggleDialogOpened} />}
+      </AnimatePresence>
     </footer>
   );
 };

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/appHooks';
-import type { GamePiece, Result } from '@/types';
+import type { GamePiece, Result, Complexity } from '@/types';
 import {
   selectPieces,
   selectStage,
@@ -8,12 +8,20 @@ import {
   selectComputerChoice,
 } from './game-selectors';
 import { selectComplexity, selectAllowDraw } from '../config/congif-selectors';
-import { setPlayerChoice, setComputerChoice, setResult } from './game-slice';
+import { setPlayerChoice, setComputerChoice, setResult, setPieces } from './game-slice';
+import { updateScore } from '@/features/score/score-slice';
 import rules from '@/data/rules.json';
 
 interface Rules extends Record<GamePiece, GamePiece[]> {}
 
-export const useGameChoice = () => {
+type GameSets = Record<Complexity, GamePiece[]>;
+
+const gameSets: GameSets = {
+  easy: ['paper', 'rock', 'scissors'],
+  hard: ['paper', 'rock', 'scissors', 'lizard', 'spock'],
+};
+
+export const useGame = () => {
   const dispatch = useAppDispatch();
   const pieces = useAppSelector(selectPieces);
   const complexity = useAppSelector(selectComplexity);
@@ -29,7 +37,7 @@ export const useGameChoice = () => {
 
   const handleChoice = (piece: GamePiece) => {
     dispatch(setPlayerChoice(piece));
-    setTimeout(() => dispatch(setComputerChoice(randomPiece(piece))), 3000);
+    setTimeout(() => dispatch(setComputerChoice(randomPiece(piece))), 1000);
   };
 
   useEffect(() => {
@@ -39,8 +47,19 @@ export const useGameChoice = () => {
       return 'lose';
     };
 
-    if (playerChoice && computerChoice) dispatch(setResult(calculateResult()));
+    if (playerChoice && computerChoice) {
+      const result = calculateResult();
+      dispatch(setResult(result));
+
+      if (result === 'draw') return;
+
+      dispatch(updateScore(result === 'win' ? 1 : -1));
+    }
   }, [playerChoice, computerChoice, dispatch]);
+
+  useEffect(() => {
+    dispatch(setPieces(gameSets[complexity]));
+  }, [complexity, dispatch]);
 
   return { pieces, complexity, stage, handleChoice };
 };

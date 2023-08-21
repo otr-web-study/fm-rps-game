@@ -1,9 +1,14 @@
+import type { FC } from 'react';
+import { Complexity, GamePiece } from '@/types';
 import { GamePieceInteractive } from './GamePieceInteractive';
-import { useGameChoice } from './useGameChoice';
 
-export const GameChoice = () => {
-  const { pieces, complexity, handleChoice } = useGameChoice();
+interface GameChoiceProps {
+  pieces: GamePiece[];
+  complexity: Complexity;
+  handleChoice: (piece: GamePiece) => void;
+}
 
+export const GameChoice: FC<GameChoiceProps> = ({ pieces, complexity, handleChoice }) => {
   const content = pieces.map((piece) => (
     <GamePieceInteractive
       key={piece}
