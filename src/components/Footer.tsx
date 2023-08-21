@@ -1,5 +1,5 @@
-import { useConfigDealog } from '@/features/config-store/useConfigDialog';
-import { ConfigDialog } from '@/features/config-store/ConfigDialog';
+import { useConfigDealog } from '@/features/config/useConfigDialog';
+import { ConfigDialog } from '@/features/config/ConfigDialog';
 
 export const Footer = () => {
   const { isDialogOpened, toggleDialogOpened } = useConfigDealog();

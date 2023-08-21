@@ -1,0 +1,7 @@
+{
+  "lizard": ["paper", "spock"],
+  "paper": ["rock", "spock"],
+  "rock": ["lizard", "scissors"],
+  "scissors": ["paper", "lizard"],
+  "spock": ["scissors", "rock"]
+}

@@ -1,6 +1,6 @@
 import { Container } from '@/components/Container';
 import { Header } from '@/components/Header';
-import { GameBoard } from '@/features/game-store/GameBoard';
+import { GameBoard } from '@/features/game/GameBoard';
 import { Footer } from '@/components/Footer';
 
 function App() {

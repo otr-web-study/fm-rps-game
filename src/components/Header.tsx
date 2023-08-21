@@ -1,6 +1,6 @@
 import { useAppSelector } from '@/store/appHooks';
-import { selectComplexity } from '@/features/config-store/congif-selectors';
-import { Score } from '@/features/score-store/Score';
+import { selectComplexity } from '@/features/config/congif-selectors';
+import { Score } from '@/features/score/Score';
 
 export const Header = () => {
   const complexity = useAppSelector(selectComplexity);

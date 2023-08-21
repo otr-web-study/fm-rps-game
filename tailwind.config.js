@@ -11,6 +11,8 @@ export default {
         outline: 'hsl(217, 16%, 45%)',
         'dark-trans-1': 'rgba(0,0,0,0.1)',
         overlay: 'rgba(0,0,0,0.5)',
+        'switcher-bg': 'hsl(225, 25%, 91%)',
+        'slider-bg': 'hsl(230, 13%, 73%)',
       },
       backgroundImage: {
         'bg-gr': 'linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%))',
@@ -36,6 +38,7 @@ export default {
         'sh-lizard': '0px 0.45em hsl(260, 51%, 44%)',
         'sh-spock': '0px 0.45em hsl(195, 59%, 43%)',
         'sh-inner': 'inset 0px 0.45em rgba(0, 0, 0, 0.15)',
+        'sh-switcher': '0px 2px 6px rgba(0, 0, 0, 0.08)',
       },
     },
   },

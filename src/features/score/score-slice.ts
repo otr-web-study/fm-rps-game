@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 const scoreSlice = createSlice({
   name: '@@score',
-  initialState: 12,
+  initialState: 0,
   reducers: {
     setScore: (_, action: PayloadAction<number>) => action.payload,
   },

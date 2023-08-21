@@ -24,5 +24,5 @@ const configSlice = createSlice({
   },
 });
 
-export const { setComplexity } = configSlice.actions;
+export const { setComplexity, setAllowDraw } = configSlice.actions;
 export const configReducer = configSlice.reducer;

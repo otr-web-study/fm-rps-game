@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { configReducer } from '@/features/config-store/config-slice';
-import { scoreReducer } from '@/features/score-store/score-slice';
-import { gameReducer } from '@/features/game-store/game-slice';
+import { configReducer } from '@/features/config/config-slice';
+import { scoreReducer } from '@/features/score/score-slice';
+import { gameReducer } from '@/features/game/game-slice';
 
 const rootReducer = combineReducers({
   config: configReducer,
