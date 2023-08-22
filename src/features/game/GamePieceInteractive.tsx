@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { type FC, forwardRef } from 'react';
+import { motion } from 'framer-motion';
 import { GamePiece as GamePieceType, Complexity } from '@/types';
 import { GamePiece } from './GamePiece';
 
@@ -8,18 +9,20 @@ interface GamePieceInteractiveProps {
   onClick: () => void;
 }
 
-export const GamePieceInteractive: FC<GamePieceInteractiveProps> = ({
-  piece,
-  complexity,
-  onClick,
-}) => {
+export const GamePieceInteractive: FC<GamePieceInteractiveProps> = forwardRef<
+  HTMLButtonElement,
+  GamePieceInteractiveProps
+>(({ piece, complexity, onClick }, ref) => {
   return (
     <button
-      className={`${piece} ${complexity} absolute aspect-square rounded-[50%] [container-type:inline-size] transition-transform duration-300 hover:-translate-y-1`}
+      ref={ref}
+      className={`${piece} ${complexity} absolute aspect-square rounded-[50%] [container-type:inline-size]`}
       onClick={onClick}
     >
       <GamePiece piece={piece} />
       <span className="sr-only">{piece}</span>
     </button>
   );
-};
+});
+
+export const MGamePieceInteracitve = motion(GamePieceInteractive);

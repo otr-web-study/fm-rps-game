@@ -8,7 +8,7 @@ import {
   selectComputerChoice,
 } from './game-selectors';
 import { selectComplexity, selectAllowDraw } from '../config/congif-selectors';
-import { setPlayerChoice, setComputerChoice, setResult, setPieces } from './game-slice';
+import { setPlayerChoice, setComputerChoice, setResult, setPieces, setStage } from './game-slice';
 import { updateScore } from '@/features/score/score-slice';
 import rules from '@/data/rules.json';
 
@@ -37,7 +37,8 @@ export const useGame = () => {
 
   const handleChoice = (piece: GamePiece) => {
     dispatch(setPlayerChoice(piece));
-    setTimeout(() => dispatch(setComputerChoice(randomPiece(piece))), 1000);
+    setTimeout(() => dispatch(setStage('result')), 400);
+    setTimeout(() => dispatch(setComputerChoice(randomPiece(piece))), 5000);
   };
 
   useEffect(() => {
@@ -61,5 +62,5 @@ export const useGame = () => {
     dispatch(setPieces(gameSets[complexity]));
   }, [complexity, dispatch]);
 
-  return { pieces, complexity, stage, handleChoice };
+  return { pieces, complexity, stage, playerChoice, handleChoice };
 };

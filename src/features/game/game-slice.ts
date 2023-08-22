@@ -32,7 +32,6 @@ const gameSlice = createSlice({
     },
     setPlayerChoice: (state, action: PayloadAction<GamePiece | null>) => {
       state.playerChoice = action.payload;
-      state.stage = 'result';
     },
     setComputerChoice: (state, action: PayloadAction<GamePiece | null>) => {
       state.computerChoice = action.payload;
@@ -40,9 +39,12 @@ const gameSlice = createSlice({
     setResult: (state, action: PayloadAction<Result>) => {
       state.result = action.payload;
     },
+    setStage: (state, action: PayloadAction<GameStage>) => {
+      state.stage = action.payload;
+    },
   },
 });
 
-export const { setPieces, playAgain, setPlayerChoice, setComputerChoice, setResult } =
+export const { setPieces, playAgain, setPlayerChoice, setComputerChoice, setResult, setStage } =
   gameSlice.actions;
 export const gameReducer = gameSlice.reducer;

@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { type FC } from 'react';
 import { GamePiece as GamePieceType } from '@/types';
 import { GamePiece } from './GamePiece';
 
@@ -8,11 +9,31 @@ interface GamePieceStaticProps {
   winner: boolean;
 }
 
+const waitVariants = {
+  jump: {
+    y: [0, -40],
+    x: 0,
+    transition: {
+      y: {
+        yoyo: Infinity,
+        duration: 0.25,
+        ease: 'easeOut',
+      },
+    },
+  },
+};
+
 export const GamePieceStatic: FC<GamePieceStaticProps> = ({ piece, title, winner }) => {
   const content = piece ? (
     <GamePiece piece={piece} />
   ) : (
-    <div className="aspect-square w-[calc(100%-1.35em)] rounded-[50%] bg-dark-trans-1" />
+    <AnimatePresence>
+      <motion.div
+        variants={waitVariants}
+        animate="jump"
+        className="aspect-square w-[calc(100%-1.35em)] rounded-[50%] bg-dark-trans-1"
+      />
+    </AnimatePresence>
   );
 
   const winnerClassName = winner ? 'before:scale-[2.6]' : '';
