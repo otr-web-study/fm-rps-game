@@ -38,7 +38,7 @@ export const useGame = () => {
   const handleChoice = (piece: GamePiece) => {
     dispatch(setPlayerChoice(piece));
     setTimeout(() => dispatch(setStage('result')), 400);
-    setTimeout(() => dispatch(setComputerChoice(randomPiece(piece))), 5000);
+    setTimeout(() => dispatch(setComputerChoice(randomPiece(piece))), 2000);
   };
 
   useEffect(() => {

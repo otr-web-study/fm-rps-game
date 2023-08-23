@@ -8,9 +8,6 @@ export const Footer = () => {
   return (
     <footer className="relative z-10 mt-11 flex w-full max-w-[1348px] justify-center px-5 lg:mt-[18px] lg:justify-end">
       <motion.button
-        drag
-        dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
-        dragElastic={0.4}
         initial={{ x: '60vw' }}
         animate={{ x: 0, transition: { delay: 1.1 } }}
         transition={{

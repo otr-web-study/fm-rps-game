@@ -1,7 +1,7 @@
+import { type FC, forwardRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { type FC } from 'react';
 import { GamePiece as GamePieceType } from '@/types';
-import { GamePiece } from './GamePiece';
+import { MGamePiece } from './GamePiece';
 
 interface GamePieceStaticProps {
   piece: GamePieceType | null;
@@ -9,31 +9,28 @@ interface GamePieceStaticProps {
   winner: boolean;
 }
 
-const waitVariants = {
-  jump: {
-    y: [0, -40],
-    x: 0,
-    transition: {
-      y: {
-        yoyo: Infinity,
-        duration: 0.25,
-        ease: 'easeOut',
-      },
-    },
-  },
-};
-
-export const GamePieceStatic: FC<GamePieceStaticProps> = ({ piece, title, winner }) => {
+export const GamePieceStatic: FC<GamePieceStaticProps> = forwardRef<
+  HTMLDivElement,
+  GamePieceStaticProps
+>(({ piece, title, winner }, ref) => {
   const content = piece ? (
-    <GamePiece piece={piece} />
+    <MGamePiece
+      key="full"
+      initial={{ scale: 0.3, opacity: 0 }}
+      animate={{
+        scale: [null, 1.1, 1],
+        opacity: 1,
+        transition: { type: 'spring', stiffness: 250 },
+      }}
+      piece={piece}
+    />
   ) : (
-    <AnimatePresence>
-      <motion.div
-        variants={waitVariants}
-        animate="jump"
-        className="aspect-square w-[calc(100%-1.35em)] rounded-[50%] bg-dark-trans-1"
-      />
-    </AnimatePresence>
+    <motion.div
+      key="emty"
+      animate="visible"
+      exit={{ opacity: 0 }}
+      className="aspect-square w-[calc(100%-1.35em)] rounded-[50%] bg-dark-trans-1"
+    />
   );
 
   const winnerClassName = winner ? 'before:scale-[2.6]' : '';
@@ -42,13 +39,18 @@ export const GamePieceStatic: FC<GamePieceStaticProps> = ({ piece, title, winner
     : '';
 
   return (
-    <div className="flex flex-col items-center gap-7 [container-type:inline-size] lg:flex-col-reverse lg:gap-16">
-      <div
+    <div
+      ref={ref}
+      className="flex flex-col items-center gap-7 [container-type:inline-size] lg:flex-col-reverse lg:gap-16"
+    >
+      <motion.div
         className={`${piece} relative flex aspect-square w-32 items-center justify-center rounded-[50%] [container-type:inline-size] lg:w-[91%] ${pieceClassName} ${winnerClassName}`}
       >
-        {content}
-      </div>
+        <AnimatePresence mode="wait">{content}</AnimatePresence>
+      </motion.div>
       <h3 className="uppercase tracking-[1.8px] lg:text-2xl lg:tracking-[2.5px]">{title}</h3>
     </div>
   );
-};
+});
+
+export const MGamePieceStatic = motion(GamePieceStatic);

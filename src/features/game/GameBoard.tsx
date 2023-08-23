@@ -14,6 +14,7 @@ export const GameBoard = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.3 } }}
+            key="choice"
             pieces={pieces}
             complexity={complexity}
             playerChoice={playerChoice}
@@ -22,9 +23,10 @@ export const GameBoard = () => {
         )}
         {stage === 'result' && (
           <MGameResult
-            initial={{ x: '80vh' }}
+            initial={{ x: '80vw' }}
             animate={{ x: 0 }}
-            exit={{ x: '-80vh' }}
+            exit={{ x: '-80vw', transition: { type: 'tween' } }}
+            key="result"
             transition={{ duration: 0.3, type: 'spring', stiffness: 200 }}
           />
         )}

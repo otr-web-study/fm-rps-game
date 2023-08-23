@@ -16,6 +16,7 @@ const pieceAnimation = {
     y: 0,
     transition: { delay: 0.8 + custom * 0.3, type: 'spring', stiffness: 180, duration: 0.3 },
   }),
+  exit: { y: '80vh', transition: { delay: 0, duration: 0.2 } },
 };
 
 export const GameChoice: FC<GameChoiceProps> = forwardRef<HTMLDivElement, GameChoiceProps>(
@@ -28,7 +29,7 @@ export const GameChoice: FC<GameChoiceProps> = forwardRef<HTMLDivElement, GameCh
           variants={pieceAnimation}
           initial="hidden"
           animate="visible"
-          exit={{ y: '80vh', transition: { delay: 0, duration: 0.2 } }}
+          exit="exit"
           whileHover={{
             scale: [null, 1.2, 1.15],
             transition: { duration: 0.3, delay: 0, type: 'spring', stiffness: 250 },
