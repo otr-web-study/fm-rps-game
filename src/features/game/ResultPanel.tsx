@@ -8,9 +8,10 @@ interface ResultPanelProps {
 }
 export const ResultPanel: FC<ResultPanelProps> = ({ result, onPlayAgain }) => {
   return (
-    <div className="relative z-10 col-span-2 col-start-1 row-start-2 flex min-h-[126px] flex-col items-center lg:col-span-1 lg:col-start-2 lg:row-start-1 lg:mt-40">
+    <div className="relative z-10 col-span-2 col-start-1 row-start-2 lg:col-span-1 lg:col-start-2 lg:row-start-1 lg:mt-40">
       {result && (
         <motion.div
+          className="flex min-h-[126px] flex-col items-center"
           initial={{ opacity: 0, scale: 0.1 }}
           animate={{
             opacity: 1,
