@@ -13,12 +13,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshots/screenshot.jpg)
 
 ### Links
 
-- [Solution] ()
-- [Live Site] ()
+- [Solution] (https://www.frontendmentor.io/solutions/rock-paper-scissors-game-12Uqb1H7fn)
+- [Live Site] (https://rainbow-cobbler-406f30.netlify.app/)
 
 ### Built with
 
